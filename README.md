@@ -12,12 +12,15 @@
 ---
 
 ## 📌 Problem Statement & Context
-The **Office of Foreign Labor Certification (OFLC)** in the US reviews hundreds of thousands of visa applications annually. In FY 2016, over **775,000 applications** were filed for nearly **1.7 million positions** — a **9% increase** year-on-year.
+
+The U.S. visa application process is highly competitive, with significant socio-economic consequences for applicants and employers. Predicting the likelihood of visa case approval or denial can help streamline decision-making, reduce uncertainties, and guide applicants and organizations in preparing stronger submissions.
 
 Manual reviews are **time-intensive**, creating bottlenecks in processing. To improve efficiency, OFLC partnered with **EasyVisa** to leverage **machine learning** to:
 - Predict whether a visa application will be **Certified** or **Denied**.
 - Identify key **predictors of approvals**.
 - Support policymakers and employers with **data-driven decisions**.
+
+The ultimate goal is to build models that not only achieve strong accuracy but also maintain balanced recall and precision, especially for the minority class (“Denied”), where misclassification could have serious implications.
 
 ---
 
@@ -56,7 +59,8 @@ Develop a **classification model** to predict visa case outcomes (`Certified` vs
 ---
 
 ## 🤖 Modeling Approach
-- **Models Tested:** Decision Tree, Random Forest, AdaBoost, Gradient Boosting, Bagging, XGBoost  
+- **Models Tested:**
+  -- Decision Tree, Random Forest, AdaBoost, Gradient Boosting, Bagging, XGBoost  
 - **Imbalance Handling:** SMOTE, Random Under-Sampling, Tomek Links  
 - **Evaluation Metrics:** Accuracy, Recall, Precision, F1-score, ROC-AUC  
 - **Hyperparameter Tuning:** GridSearchCV & RandomizedSearchCV for boosting models  
