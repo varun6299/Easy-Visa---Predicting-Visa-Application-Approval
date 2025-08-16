@@ -58,25 +58,58 @@ Develop a **classification model** to predict visa case outcomes (`Certified` vs
 
 ---
 
-## 🤖 Modeling Approach
-- **Models Tested:**
-  -- Decision Tree, Random Forest, AdaBoost, Gradient Boosting, Bagging, XGBoost  
-- **Imbalance Handling:** SMOTE, Random Under-Sampling, Tomek Links  
-- **Evaluation Metrics:** Accuracy, Recall, Precision, F1-score, ROC-AUC  
-- **Hyperparameter Tuning:** GridSearchCV & RandomizedSearchCV for boosting models  
+# 🤖 Modeling Approach
+
+**Models Tested:** 
+The following algorithms were tested:
+- Decision Tree – baseline interpretability
+- Random Forest – ensemble for improved stability
+- Bagging (Decision Trees) – variance reduction
+- Gradient Boosting (GBM) – sequential learning with boosting
+- AdaBoost – adaptive boosting to reduce bias
+- XGBoost – optimized boosting with strong performance
+
+**Imbalance Handling:**
+The dataset was heavily skewed towards “Certified” cases. To address this:
+- Original Dataset – models trained directly on raw data
+- SMOTE (Synthetic Minority Oversampling Technique) – oversampled minority class
+- Random Undersampling – reduced majority class
+This ensured that models were not biased toward predicting only the majority class. 
+
+**Evaluation Metrics:**
+The dataset was imbalanced (more “Certified” than “Denied” cases). Accuracy alone would be misleading, so we focused on:
+- F1 Score – balances precision and recall, chosen as the key metric.
+- Recall – important to capture denied cases correctly.
+- Precision – ensures predicted denials are credible.
+
+**Why F1 Score?** It handles imbalance better than accuracy and balances the cost of false positives (unnecessary rejections) and false negatives (missed denials).
+
+**Hyperparameter Tuning:** 
+To improve model performance and prevent overfitting, hyperparameter tuning was applied to the boosting algorithms (Gradient Boosting, AdaBoost, XGBoost).
+- GridSearchCV was used for smaller parameter spaces, exhaustively testing combinations.
+- RandomizedSearchCV was used for larger spaces, providing faster exploration.
 
 ---
 
-## 📊 Model Results (Illustrative)
+## 📊 Model Results 
 
-| Model            | Accuracy | Recall | Precision | F1 Score | Notes |
-|------------------|----------|--------|-----------|----------|-------|
-| Decision Tree    | ~78%     | ~75%   | ~77%      | ~76%     | High interpretability |
-| Random Forest    | ~83%     | ~80%   | ~82%      | ~81%     | Robust, less variance |
-| Gradient Boosting| ~85%     | ~82%   | ~84%      | ~83%     | Balanced trade-offs |
-| **XGBoost** ✅   | **87%**  | **85%**| **86%**   | **85%**  | Best overall performer |
+| Model Variant                   | Accuracy | Precision | Recall | F1 Score |
+|---------------------------------|----------|-----------|--------|----------|
+| **SMOTE | Gradient Boosting**   | 0.7504   | 0.7210    | 0.6901 | **0.6996** |
+| Gradient Boosting               | 0.7524   | 0.7254    | 0.6876 | 0.6981 |
+| Undersampled | Gradient Boosting| 0.7155   | 0.6912    | 0.7084 | 0.6950 |
+| SMOTE | AdaBoost                | 0.7347   | 0.6993    | 0.6838 | 0.6896 |
+| SMOTE | XGBoost                 | 0.7374   | 0.7037    | 0.6770 | 0.6852 |
+| Undersampled | XGBoost          | 0.6911   | 0.6747    | 0.6945 | 0.6749 |
+| Random Forest                   | 0.7255   | 0.6883    | 0.6619 | 0.6695 |
+| Decision Tree                   | 0.6652   | 0.6213    | 0.6200 | 0.6206 |
 
-*(Insert your exact numbers here once finalized from the notebook.)*
+### 🏆 Final Model Chosen
+**SMOTE with Gradient Boosting**  
+- Achieved the **highest F1 Score (0.6996)**.  
+- Balanced precision and recall better than all other models.  
+- Outperformed plain Gradient Boosting and XGBoost on imbalanced data.  
+- Selected as the final model for deployment.  
 
 ---
 
