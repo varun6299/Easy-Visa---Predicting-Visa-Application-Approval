@@ -58,7 +58,7 @@ Develop a **classification model** to predict visa case outcomes (`Certified` vs
 
 
 <p align="center">
-  <img src="images/visa status by job exp.png" alt="Has Work Experience vs Acceptance" width="600"/>
+  <img src="images/visa status by exp.png" alt="Has Work Experience vs Acceptance" width="600"/>
 </p>
 - **Experience:** Experienced applicants had ~**75% approval**, compared to ~**50%** for non-experienced.  
 - **Geography:**  
