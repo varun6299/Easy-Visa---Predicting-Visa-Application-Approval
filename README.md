@@ -52,13 +52,13 @@ Develop a **classification model** to predict visa case outcomes (`Certified` vs
 ### Key Findings
 
 <p align="center">
-  <img src="images/readme main picture.png" alt="Education vs Acceptance" width="600"/>
+  <img src="images/Screenshot 2025-08-16 at 8.34.30 PM.png" alt="Education vs Acceptance" width="600"/>
 </p>
 - **Education:** Approval probability rises with education — from **63% (Bachelor’s)** to **86% (Doctorate)**.  
 
 
 <p align="center">
-  <img src="images/readme main picture.png" alt="Education vs Acceptance" width="600"/>
+  <img src="images/Screenshot 2025-08-16 at 8.34.30 PM.png" alt="Education vs Acceptance" width="600"/>
 </p>
 - **Experience:** Experienced applicants had ~**75% approval**, compared to ~**50%** for non-experienced.  
 - **Geography:**  
