@@ -13,6 +13,10 @@
 
 ## 📌 Problem Statement & Context
 
+<p align="center">
+  <img src="images/readme main picture.png" alt="Education vs Acceptance" width="600"/>
+</p>
+
 The U.S. visa application process is highly competitive, with significant socio-economic consequences for applicants and employers. Predicting the likelihood of visa case approval or denial can help streamline decision-making, reduce uncertainties, and guide applicants and organizations in preparing stronger submissions.
 
 Manual reviews are **time-intensive**, creating bottlenecks in processing. To improve efficiency, OFLC partnered with **EasyVisa** to leverage **machine learning** to:
@@ -46,7 +50,16 @@ Develop a **classification model** to predict visa case outcomes (`Certified` vs
 ## 🔍 Exploratory Data Analysis (EDA)
 
 ### Key Findings
+
+<p align="center">
+  <img src="images/readme main picture.png" alt="Education vs Acceptance" width="600"/>
+</p>
 - **Education:** Approval probability rises with education — from **63% (Bachelor’s)** to **86% (Doctorate)**.  
+
+
+<p align="center">
+  <img src="images/readme main picture.png" alt="Education vs Acceptance" width="600"/>
+</p>
 - **Experience:** Experienced applicants had ~**75% approval**, compared to ~**50%** for non-experienced.  
 - **Geography:**  
   - **Asia:** ~66% approval  
@@ -72,7 +85,15 @@ The following algorithms were tested:
 **Imbalance Handling:**
 The dataset was heavily skewed towards “Certified” cases. To address this:
 - Original Dataset – models trained directly on raw data
+
+<p align="center">
+  <img src="images/SMOTE.png" alt="Education vs Acceptance" width="600"/>
+</p>
 - SMOTE (Synthetic Minority Oversampling Technique) – oversampled minority class
+
+<p align="center">
+  <img src="images/Undersampling.png" alt="Education vs Acceptance" width="600"/>
+</p>
 - Random Undersampling – reduced majority class
 This ensured that models were not biased toward predicting only the majority class. 
 
@@ -105,6 +126,11 @@ To improve model performance and prevent overfitting, hyperparameter tuning was 
 | Decision Tree                   | 0.6652   | 0.6213    | 0.6200 | 0.6206 |
 
 ### 🏆 Final Model Chosen
+
+<p align="center">
+  <img src="images/SMOTE Gradient Boosting Validation result.png" alt="Education vs Acceptance" width="600"/>
+</p>
+
 **SMOTE with Gradient Boosting**  
 - Achieved the **highest F1 Score (0.6996)**.  
 - Balanced precision and recall better than all other models.  
